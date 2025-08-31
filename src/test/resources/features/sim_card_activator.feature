@@ -16,3 +16,4 @@ Feature: SIM Card Activation
       | iccid        | customerEmail           |
       | 987654321098 | customer2@example.com   |
     Then the response should indicate failed activation
+
