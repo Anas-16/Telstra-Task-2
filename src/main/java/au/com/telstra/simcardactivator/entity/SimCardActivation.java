@@ -19,17 +19,14 @@ public class SimCardActivation {
     @Column(name = "active", nullable = false)
     private boolean active;
 
-    // Default constructor
     public SimCardActivation() {}
 
-    // Constructor without ID (ID is auto-generated)
     public SimCardActivation(String iccid, String customerEmail, boolean active) {
         this.iccid = iccid;
         this.customerEmail = customerEmail;
         this.active = active;
     }
 
-    // Getters and setters
     public Long getId() {
         return id;
     }

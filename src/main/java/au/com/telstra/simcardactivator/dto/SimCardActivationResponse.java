@@ -5,17 +5,14 @@ public class SimCardActivationResponse {
     private String customerEmail;
     private boolean active;
 
-    // Default constructor
     public SimCardActivationResponse() {}
 
-    // Constructor with parameters
     public SimCardActivationResponse(String iccid, String customerEmail, boolean active) {
         this.iccid = iccid;
         this.customerEmail = customerEmail;
         this.active = active;
     }
 
-    // Getters and setters
     public String getIccid() {
         return iccid;
     }

@@ -30,21 +30,17 @@ public class SimCardActivationService {
     public String activateSimCard(ActivationRequest request) {
         System.out.println("Received activation request: " + request);
 
-        // Create request for actuator
         ActuatorRequest actuatorRequest = new ActuatorRequest(request.getIccid());
         
-        // Set up headers
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         
-        // Create HTTP entity
         HttpEntity<ActuatorRequest> entity = new HttpEntity<>(actuatorRequest, headers);
 
         boolean activationSuccess = false;
         String resultMessage;
 
         try {
-            // Send request to actuator
             ResponseEntity<ActuatorResponse> response = restTemplate.postForEntity(
                 ACTUATOR_URL, 
                 entity, 
@@ -73,7 +69,6 @@ public class SimCardActivationService {
             resultMessage = "Error: Unable to communicate with actuator";
         }
 
-        // Save to database
         SimCardActivation activation = new SimCardActivation(
             request.getIccid(), 
             request.getCustomerEmail(), 
@@ -97,7 +92,7 @@ public class SimCardActivationService {
                 simCard.isActive()
             );
         } else {
-            return null; // Return null if not found
+            return null;
         }
     }
 } 

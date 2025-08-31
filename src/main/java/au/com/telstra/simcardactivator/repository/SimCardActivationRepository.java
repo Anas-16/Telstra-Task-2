@@ -6,6 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SimCardActivationRepository extends JpaRepository<SimCardActivation, Long> {
-    // Basic CRUD operations are automatically provided by JpaRepository
-    // We can add custom query methods here if needed in the future
 } 
